@@ -23,7 +23,7 @@ Deploy the machine.
 445/tcp open  netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: WORKGROUP)
 ````
 - What ports is **SMB** running on?	``139/445``
-- Let's get started with Enum4Linux, conduct a full basic enumeration. For starters, what is the **workgroup** name?	``WORKGROUP``
+- Let's get started with Enum4Linux, conduct a full basic enumeration. For starters, what is the **workgroup** name?	``WORKGROUP``  
 although enum4linux outputs this ``SMB1 disabled -- no workgroup available`` in nmap there is the workgroup name specified
 ````
 139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
@@ -42,7 +42,7 @@ Host script results:
 |   FQDN: polosmb
 |_  System time: 2021-08-06T08:09:37+00:00
 ````
-- What operating system **version** is running?	 ``6.1``
+- What operating system **version** is running?	 ``6.1``  
  ``OS: Windows 6.1 (Samba 4.7.6-Ubuntu)``
 - What share sticks out as something we might want to investigate?	 ``profiles``
 
@@ -82,7 +82,7 @@ smb: \> ls
 
 ````
 
-we see that there is an interesting file, can we open it with ``print``? Nope, lets send it to our machine.
+we see that there is an interesting file, can we open it with ``print``? Nope, lets send it to our machine.  
 ````
 smb: \> get "Working From Home Information.txt" /root/hola.txt
 getting file \Working From Home Information.txt of size 358 as /root/hola.txt (2.2 KiloBytes/sec) (average 2.2 KiloBytes/sec)
@@ -186,7 +186,7 @@ ls
 - Okay, let's try and connect to this telnet port! If you get stuck, have a look at the syntax for connecting outlined above.	``No answer needed``
 - Great! It's an open telnet connection! What welcome message do we receive? ``SKIDY'S BACKDOOR.``
 - Let's try executing some commands, do we get a return on any input we enter into the telnet session? (Y/N)	``y``
-- Hmm... that's strange. Let's check to see if what we're typing is being executed as a system command. ``No answer needed``
+- Hmm... that's strange. Let's check to see if what we're typing is being executed as a system command. ``No answer needed``  
 ``.RUN ls`` --> doesn't output anything
 
 - This starts a tcpdump listener, specifically listening for ICMP traffic, which pings operate on.	``No answer needed``
